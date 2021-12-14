@@ -1,0 +1,65 @@
+import java.util.Arrays;
+import java.util.Random;
+public class alogo4 {
+    public static void main(String[] args) {
+
+
+        Random rd = new Random();
+        double[] x = new double[1000];
+        for (int i = 0; i < x.length; i++) {
+            x[i] = rd.nextInt(); // storing random integers in an array
+
+        }//prefix(x);
+         RunAlgorithm(x);
+    }
+
+    public static void RunAlgorithm(double [] x)
+    {
+        long StartTime, EndTime, ElapsedTime;
+
+        System.out.println("Testing algorithm …");
+
+        // Save the time before the algorithm run
+        StartTime=System.nanoTime();
+
+        // Run the algorithm
+        DummyAlgorithm(x);
+
+        // Save the time after the run
+        EndTime=System.nanoTime();
+
+        // Calculate the difference
+        ElapsedTime= EndTime- StartTime;
+
+        // Print it out
+        System.out.println("The algorithm took " + ElapsedTime + " Nano seconds to run.");
+    }
+//    private static void DummyAlgorithm(double[] x)
+//    {
+//        int n = x.length;
+//        double[] a = new double[n];
+//        for (int i = 0; i < n; i++) {
+//            double s = x[0];
+//            for (int j = 1; j < n; j++) {
+//                if (j <= i) {
+//                    s += x[j];
+//                }
+//                a[i] = s / (i + 1);
+//            }
+//
+//        }
+//        System.out.println(Arrays.toString(a));
+//    }
+
+    private static void DummyAlgorithm(double [] x) {
+
+       int n = x.length;
+        double [] a = new double[n];
+        int s = 0;
+        for ( int i = 0; i < n ; i++ ){
+             s += x[i];
+             a[i] = s / ( i+1);
+        }
+        System.out.println(Arrays.toString(a));
+    }
+}

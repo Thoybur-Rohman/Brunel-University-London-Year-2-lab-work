@@ -1,0 +1,104 @@
+```import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.Stack;
+import java.util.Random;
+import java.util.concurrent.ArrayBlockingQueue;
+
+public class Lab6 {
+
+    public static void main(String[] args) {
+        System.out.println("verifying the random number generator");
+        ShowArray(RandomArray(10)); //6.2 part 3
+        System.out.println();
+        //6.2 part 4
+        ArrayList<Integer> arr1 = ThreeSorts.SortA(RandomArray(10));
+        System.out.println("Sorting algo. 1:");
+        ShowArray(arr1);
+        
+        ArrayList<Integer> arr2 = ThreeSorts.SortB(RandomArray(10));
+        System.out.println("Sorting algo. 2:");
+        ShowArray(arr2);
+        
+        ArrayList<Integer> arr3 = ThreeSorts.SortC(RandomArray(10));
+        System.out.println("Sorting algo. 3:");
+        ShowArray(arr3);
+        //6.2 part 5
+        //descending order
+        //6.2 part 6
+        //A is bubble sort
+        //B is merge sort
+        //C is quick sort
+        
+        testing(10000);
+        testing(12000);
+        testing(14000);
+        testing(16000);
+        testing(18000);
+        testing(20000);
+        System.out.println("done large data inputs");
+        //6.3 part 7
+        //merge is fastest, quick sort is good,
+        //bubble is much slower
+        //part 8
+        //at small input sizes it doesn't matter, decide based on average/worst case
+        //part 9
+        //depends on CPU
+        //testing(50000);
+        //50,000 takes 13.8 seconds
+        
+    }
+    
+    public static void testing(int a)
+    {
+        //Part 6.3
+                System.out.println(a + " input size:");
+                long startTime = System.currentTimeMillis();
+                ArrayList<Integer> arr4 = ThreeSorts.SortA(RandomArray(a));
+                System.out.println("Sorting algo. 1:");
+                //ShowArray(arr4);
+                long endTime = System.currentTimeMillis();
+                System.out.println("That took " + (endTime - startTime) + " milliseconds");
+                
+                startTime = System.currentTimeMillis();
+                ArrayList<Integer> arr5 = ThreeSorts.SortB(RandomArray(a));
+                System.out.println("Sorting algo. 2:");
+                //ShowArray(arr5);
+                endTime = System.currentTimeMillis();
+                System.out.println("That took " + (endTime - startTime) + " milliseconds");
+                
+                startTime = System.currentTimeMillis();
+                ArrayList<Integer> arr6 = ThreeSorts.SortC(RandomArray(a));
+                System.out.println("Sorting algo. 3:");
+                //ShowArray(arr6);
+                endTime = System.currentTimeMillis();
+                System.out.println("That took " + (endTime - startTime) + " milliseconds");
+    }
+
+    public static ArrayList<Integer> RandomArray(int n)
+    {
+        //to return an arraylist
+        //of n random numbers between
+        //0 and 255
+        //so the returned array is size n
+        ArrayList<Integer> arr=new ArrayList<Integer>(n);
+        for(int i=0;i<n;++i)
+        {
+            Random rand = new Random();
+            int n2 = rand.nextInt(50);
+            arr.add(n2);
+        }
+        return arr;
+    }
+    
+private static void ShowArray(ArrayList<Integer> randomArray) {
+    //6.2 part 2    
+    int n = randomArray.size();
+        for(int i=0;i<n;++i)
+        {
+            System.out.println(randomArray.get(i));
+        }
+        
+    }    
+
+}```

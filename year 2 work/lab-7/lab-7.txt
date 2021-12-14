@@ -1,0 +1,27 @@
+package CompareEdge;
+
+import java.util.Arrays;
+import java.util.Random;
+
+public class lab7 {
+    public static void main(String[] args) {
+        double [][] g = randomArray(5);
+        double mst[][] = MST.PrimsMST(g);
+        PrintArray(g);
+        PrintArray(mst);
+    }
+    public static double[][] randomArray(int n) {
+        double [][] randomArray = new double[n][n];
+
+            for (int row = 0; row < randomArray.length; row++) {
+                for (int column = 0; column < randomArray[row].length; column++) {
+                    randomArray[row][column] = (int)(Math.random() * 100);
+                }
+            }
+
+        return randomArray;
+    }
+    private static void PrintArray(double[][] array) {
+        System.out.println(Arrays.deepToString(array));
+    }
+}
