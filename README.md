@@ -1,5 +1,5 @@
 # university-of-brunel-Year-2-lab-work
-Lab work 
+Lab work -Algorithms and their Applications
 
 Algorithms and their Applications (CS2004)!
 
